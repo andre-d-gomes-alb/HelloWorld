@@ -3,11 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-		 			def dockerHome = tool 'docker'
-		 		}
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/CalculatorLibrary.git']]])
-
             }
         }
         stage('Build') {
