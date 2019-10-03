@@ -1,3 +1,3 @@
-Para execução no Jenkins pro:
+Para execução no Jenkins pr:
    -> javac HelloWorld.java
    -> java HelloWorld
