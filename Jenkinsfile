@@ -35,7 +35,6 @@ pipeline {
                     extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'HelloWorld']]]], 
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/CalculatorLibrary.git']]])
-                sh 'ls'
             }
         }
         stage('Build and Tests') {
