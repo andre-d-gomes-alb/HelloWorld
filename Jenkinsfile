@@ -14,13 +14,6 @@ pipeline {
         )
     }
     stages {
-        stage('Checkout commiter') {
-            steps {
-                
-                    echo 'SIM'
-                }
-            }
-        }
         stage('Checkout ansible') {
             steps {
                 checkout(
