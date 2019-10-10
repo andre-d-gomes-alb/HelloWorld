@@ -6,10 +6,10 @@ pipeline {
     triggers {
         GenericTrigger(
             genericVariables: [[key: 'commiter', value: '$.head_commit.author.email']],
-            causeString: 'Triggered by $.head_commit.author.email',
+            causeString: 'Triggered by $commiter',
             token: 'test',
             printContributedVariables: false,
-            printPostContent: false,
+            printPostContent: true,
             silentResponse: false
         )
     }
