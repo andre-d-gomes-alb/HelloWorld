@@ -17,7 +17,7 @@ pipeline {
                     if(env.commiter) {
                         echo commiter
                     } else {
-                        echo 'Sem email'
+                        echo env.BUILD_USER_ID
                     }
                 }
             }
