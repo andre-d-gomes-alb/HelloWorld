@@ -14,13 +14,12 @@ pipeline {
         stage('Checkout project') {
             steps {
                 script {
-                    if(env.commiter) {
-                        echo commiter
-                    } else {
+                    if(!env.commiter) {
                         wrap([$class: 'BuildUser']) {
                             commiter = env.BUILD_USER_EMAIL
                         }
                     }
+                    echo commiter
                 }
             }
         }
