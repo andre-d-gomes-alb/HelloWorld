@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout true
+    }
     triggers {
         GenericTrigger(
             genericVariables: [[key: 'commiter', value: '$.head_commit.author.email']],
