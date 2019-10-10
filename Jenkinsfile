@@ -17,7 +17,7 @@ pipeline {
                     if(env.commiter) {
                         echo commiter
                     } else {
-                        echo env.BUILD_USER_ID
+                        echo $CAUSE
                     }
                 }
             }
