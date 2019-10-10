@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout project') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/HelloWorld.git']]])
+                checkout scm
                 cleanWs()
             }
         }
