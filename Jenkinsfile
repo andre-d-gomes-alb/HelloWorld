@@ -16,13 +16,14 @@ pipeline {
     stages {
         stage('Checkout ansible') {
             steps {
-                checkout(
-                    [$class: 'GitSCM', 
+                checkout([
+                    $class: 'GitSCM', 
                     branches: [[name: '*/master']], 
                     doGenerateSubmoduleConfigurations: false, 
                     extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'HelloWorld']]]], 
                     submoduleCfg: [], 
-                    userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/CalculatorLibrary.git']]])
+                    userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/CalculatorLibrary.git']]
+                ])
             }
         }
         stage('Build and Tests') {
@@ -35,9 +36,11 @@ pipeline {
         failure {
             script {
                 if(env.commiter) {
-                    emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}console",
-                             to: commiter,
-                             subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                    emailext(
+                        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}console",
+                        to: commiter,
+                        subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                    )
                 }
             }
         }
