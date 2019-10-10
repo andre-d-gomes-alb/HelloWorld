@@ -17,7 +17,7 @@ pipeline {
                     if(env.commiter) {
                         echo commiter
                     } else {
-                        echo $CAUSE
+                        echo CAUSE
                     }
                 }
             }
