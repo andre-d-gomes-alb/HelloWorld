@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout project') {
             steps {
                 script {
-                    if(commiter) {
+                    if(env.commiter) {
                         echo commiter
                     } else {
                         echo 'Sem email'
