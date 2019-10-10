@@ -23,6 +23,7 @@ pipeline {
                         }
                     }
                     echo commiter
+                    error "Test send email..."
                 }
             }
         }
