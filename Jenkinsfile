@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Checkout commiter') {
             steps {
-                if(!env.commiter) {
+                
                     echo 'SIM'
                 }
             }
@@ -40,9 +40,13 @@ pipeline {
     }
     post {
         failure {
-            emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}console",
-                     to: commiter,
-                     subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+            script {
+                if(commiter) {
+                    emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}console",
+                             to: commiter,
+                             subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                }
+            }
         }
     }
 }
