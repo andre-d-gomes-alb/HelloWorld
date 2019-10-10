@@ -16,6 +16,7 @@ pipeline {
     stages {
         stage('Checkout ansible') {
             steps {
+                error 'test'
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '*/master']], 
