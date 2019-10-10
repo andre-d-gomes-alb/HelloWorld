@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    options { skipDefaultCheckout() }
     stages {
         stage('Checkout project') {
             steps {
@@ -10,7 +9,7 @@ pipeline {
         }
         stage('Checkout ansible') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'IgnoreNotifyCommit'], [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'HelloWorld']]]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/CalculatorLibrary.git']]])
+                checkout(poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'IgnoreNotifyCommit'], [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'HelloWorld']]]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andre-d-gomes/CalculatorLibrary.git']]])
                 sh 'ls -la'
             }
         }
