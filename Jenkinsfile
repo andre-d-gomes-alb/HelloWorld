@@ -4,10 +4,12 @@ pipeline {
         stage('Checkout project') {
             steps {
                 checkout scm
-                commiter = sh(
-                   script: "git --no-pager show -s --format='%ae'",
-                   returnStdout: true
-                ).trim()
+                script {
+                    commiter = sh(
+                       script: "git --no-pager show -s --format='%ae'",
+                       returnStdout: true
+                    ).trim()
+                }
                 echo commiter
                 cleanWs()
             }
