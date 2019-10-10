@@ -8,7 +8,7 @@ pipeline {
             genericVariables: [[key: 'commiter', value: '$.head_commit.author.email']],
             causeString: 'Triggered by $commiter',
             token: 'test',
-            printContributedVariables: true,
+            printContributedVariables: false,
             printPostContent: false,
             silentResponse: false
         )
