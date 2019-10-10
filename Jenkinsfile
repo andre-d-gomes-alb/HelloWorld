@@ -16,14 +16,8 @@ pipeline {
     stages {
         stage('Checkout commiter') {
             steps {
-                script {
-                    if(!env.commiter) {
-                        wrap([$class: 'BuildUser']) {
-                            commiter = env.BUILD_USER_EMAIL
-                        }
-                    }
-                    echo commiter
-                    error "Test send email..."
+                if(!env.commiter) {
+                    echo 'SIM'
                 }
             }
         }
