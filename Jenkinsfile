@@ -11,7 +11,7 @@ pipeline {
         )
     }
     stages {
-        stage('Checkout project') {
+        stage('Checkout commiter') {
             steps {
                 script {
                     if(!env.commiter) {
