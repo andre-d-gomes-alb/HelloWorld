@@ -17,7 +17,9 @@ pipeline {
                     if(env.commiter) {
                         echo commiter
                     } else {
-                        echo CAUSE
+                        wrap([$class: 'BuildUser']) {
+                            commiter = env.BUILD_USER_EMAIL
+                        }
                     }
                 }
             }
