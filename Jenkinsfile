@@ -9,7 +9,7 @@ pipeline {
             causeString: 'Triggered by $commiter',
             token: 'test',
             printContributedVariables: true,
-            printPostContent: true,
+            printPostContent: false,
             silentResponse: false
         )
     }
