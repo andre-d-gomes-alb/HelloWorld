@@ -7,7 +7,7 @@ pipeline {
         GenericTrigger(
             genericVariables: [[key: 'commiter', value: '$.head_commit.author.email'], [key: 'user', value: '$.head_commit.author.name']],
             causeString: 'Triggered by $user ($commiter)',
-            token: 'up-DEVO-adapter',
+            token: 'test',
             printContributedVariables: false,
             printPostContent: false,
             silentResponse: false
