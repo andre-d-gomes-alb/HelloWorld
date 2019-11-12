@@ -1,0 +1,9 @@
+flask
+flask_restful
+json
+xlrd 
+pandas
+datetime
+pysftp
+os
+requests
