@@ -4,5 +4,4 @@ xlrd
 pandas
 datetime
 pysftp
-os
 requests
